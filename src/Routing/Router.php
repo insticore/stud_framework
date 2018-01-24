@@ -36,4 +36,16 @@ class Router
         //@TODO: Find matching route
     }
 
+    /**
+     * Build route (link)
+     *
+     * @param   string
+     * @param   array
+     *
+     * @return  string
+     */
+    public function buildRoute($name, $params = []): string{
+        // @TODO: Implement this
+    }
+
 }
