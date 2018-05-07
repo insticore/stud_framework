@@ -16,11 +16,6 @@ abstract class Model
     protected $tableName = '';
 
     /**
-     * @var string  DB Table primary key
-     */
-    protected $primaryKey = 'id';
-
-    /**
      * @var null
      */
     protected $dbo = null;
@@ -37,9 +32,7 @@ abstract class Model
     /**
      * Create new record
      */
-    public function create( $data ) {
-        //@TODO: Implement this
-    }
+    public abstract function create( $data );
 
     /**
      * Read record
@@ -50,8 +43,7 @@ abstract class Model
      */
     public function load( $id ) {
         $sql = 'SELECT * FROM `' . $this->tableName .
-            '` WHERE `'.$this->primaryKey.'`='.(int)$id; //!
-
+            '` WHERE id = ' . (int)$id;
         return $this->dbo->setQuery($sql)->getResult($this);
     }
 
@@ -60,16 +52,12 @@ abstract class Model
      *
      * @return bool
      */
-    public function save() {
-        //@TODO: Implement this
-    }
+    public abstract function save($id, $data);
 
     /**
      * Delete record from DB
      */
-    public function delete() {
-        //@TODO: Implement this
-    }
+    public abstract function delete($data);
 
     /**
      * Get list of records

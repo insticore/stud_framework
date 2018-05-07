@@ -50,10 +50,10 @@ class Request
 
             $raw_data = array_merge($raw_data, $raw_input);
         }
-
         // Make headers act like object:
         $this->headers  = new \ArrayObject($headers, \ArrayObject::ARRAY_AS_PROPS);
         $this->raw_data = new \ArrayObject($raw_data, \ArrayObject::ARRAY_AS_PROPS);
+
     }
 
     /**
@@ -88,7 +88,6 @@ class Request
     public function get(string $name, $default = null, string $type = 'raw'){
 
         $value = $this->raw_data[$name] ?? $default;
-
         return $this->filterVar($value, $type);
     }
 

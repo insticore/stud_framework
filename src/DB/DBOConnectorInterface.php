@@ -31,4 +31,6 @@ interface DBOConnectorInterface
      * @return mixed
      */
     public function getList($targetClass = '\stdClass');
+
+    public function prepareAndExecute($query, $binds);
 }

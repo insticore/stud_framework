@@ -73,4 +73,15 @@ class GenericConnector implements DBOConnectorInterface
 
         return $result;
     }
+
+
+    public function prepareAndExecute($query, $binds)
+    {
+        $stmnt = $this->connection->prepare($query);
+        foreach ($binds as $key => $value) {
+            $stmnt->bindValue($key, $value);
+        }
+        $stmnt->execute();
+        return $stmnt->fetch(\PDO::FETCH_OBJ);
+    }
 }

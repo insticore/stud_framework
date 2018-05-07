@@ -110,16 +110,4 @@ class Router
         return $params;
     }
 
-    /**
-     * Build route (link)
-     *
-     * @param   string
-     * @param   array
-     *
-     * @return  string
-     */
-    public function buildRoute($name, $params = []): string{
-        // @TODO: Implement this
-    }
-
 }
