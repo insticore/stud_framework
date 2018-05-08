@@ -46,4 +46,30 @@ class UserModel extends Model
 
         return $this->dbo->setQuery($sql)->getResult($this);
     }
+
+    /**
+     * Create new record
+     */
+    public function create($data)
+    {
+        // TODO: Implement create() method.
+    }
+
+    /**
+     * Save record state to db
+     *
+     * @return bool
+     */
+    public function save($id, $data)
+    {
+        // TODO: Implement save() method.
+    }
+
+    /**
+     * Delete record from DB
+     */
+    public function delete($data)
+    {
+        // TODO: Implement delete() method.
+    }
 }

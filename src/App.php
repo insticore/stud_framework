@@ -81,6 +81,11 @@ class App
             $paramset = Injector::resolveParams($methodReflection->getParameters(), $route->params);
             $response = $methodReflection->invokeArgs($controller, $paramset);
 
+            // Ensure it's Response subclass or wrap with JsonResponse:
+            if(!($response instanceof Response)){
+                $response = new JsonResponse($response);
+            }
+
         } else {
             throw new \Exception('Bad controller action');
         }
